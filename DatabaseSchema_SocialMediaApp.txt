@@ -1,0 +1,165 @@
+1. User Collection
+Definition:
+
+{
+  "_id": { "$oid": "666b374e1116bb308a615d89" },
+  "name": "Naman",
+  "mobileNo": "7652051947",
+  "email": "naman@gmail.com",
+  "password": "123456",
+  "following": ["user2@gmail.com"],
+  "creationDate": { "$date": "2024-06-13T18:15:42.884Z" },
+  "_class": "com.user.userservice.model.Users"
+}
+
+{
+  "_id": {
+    "$oid": "666b379b1116bb308a615d8a"
+  },
+  "name": "user2",
+  "mobileNo": "7652051948",
+  "email": "user2@gmail.com",
+  "password": "1234567",
+  "followers": [
+    "naman@gmail.com"
+  ],
+  "creationDate": {
+    "$date": "2024-06-13T18:16:59.359Z"
+  },
+  "_class": "com.user.userservice.model.Users"
+}
+
+Fields:
+
+_id: Unique identifier for the user.
+name: User's name.
+mobileNo: User's mobile number.
+email: User's email address.
+password: User's password (should be stored hashed for security).
+following: List of emails the user is following.
+followers: List of users' followers.
+creationDate: Date and time the user was created.
+_class: Class reference for the User model.
+
+
+2. Discussion Collection
+Definition:
+
+{
+  "_id": { "$oid": "666b5130214e0d41e3905197" },
+  "email": "naman@gmail.com",
+  "text": "hello world",
+  "imageId": "666b5130214e0d41e390518a",
+  "hashTags": ["#gym", "#workout"],
+  "viewCounts": 1,
+  "createdOn": { "$date": "2024-06-13T20:06:08.433Z" },
+  "_class": "com.discussion.discussionservice.model.Discussions"
+}
+Fields:
+
+_id: Unique identifier for the discussion.
+email: Email of the user who created the discussion.
+text: Text content of the discussion.
+imageId: Identifier for the associated image.
+hashTags: List of hashtags related to the discussion.
+viewCounts: Number of views for the discussion.
+createdOn: Date and time the discussion was created.
+_class: Class reference for the Discussion model.
+
+
+3. Likes Collection
+Definition (Example 1):
+
+{
+  "_id": { "$oid": "666c2c68c3eaa4090e90e19d" },
+  "discussionId": "666b5130214e0d41e3905197",
+  "email": "user2@gmail.com",
+  "creationDate": { "$date": "2024-06-14T11:41:28.216Z" },
+  "_class": "com.interaction.interactionservice.model.Likes"
+}
+
+Definition (Example 2):
+
+{
+  "_id": { "$oid": "666c5cd856695623bb7a1dea" },
+  "discussionId": "666b5130214e0d41e3905197",
+  "email": "user3@gmail.com",
+  "commentId": "666c58a7cfaf2b28cfaa6b06",
+  "creationDate": { "$date": "2024-06-14T15:08:08.651Z" },
+  "_class": "com.interaction.interactionservice.model.Likes"
+}
+
+Fields:
+
+_id: Unique identifier for the like.
+discussionId: Identifier of the liked discussion.
+email: Email of the user who liked the discussion.
+commentId (optional): Identifier of the liked comment (if applicable).
+creationDate: Date and time the like was created.
+_class: Class reference for the Likes model.
+
+4. Comments Collection
+Definition (Example 1):
+
+{
+  "_id": { "$oid": "666c58a7cfaf2b28cfaa6b06" },
+  "email": "naman@gmail.com",
+  "discussionId": "666b5130214e0d41e3905197",
+  "comment_text": "Great Pic",
+  "creationDate": { "$date": "2024-06-14T14:50:15.869Z" },
+  "_class": "com.interaction.interactionservice.model.Comments"
+}
+
+Definition (Example 2):
+
+{
+  "_id": { "$oid": "666c5977667189431f873336" },
+  "email": "user4@gmail.com",
+  "discussionId": "666b5130214e0d41e3905197",
+  "comment_text": "Thanks",
+  "creationDate": { "$date": "2024-06-14T14:53:43.511Z" },
+  "parentCommentId": "666c58a7cfaf2b28cfaa6b06",
+  "_class": "com.interaction.interactionservice.model.Comments"
+}
+
+Fields:
+
+_id: Unique identifier for the comment.
+email: Email of the user who created the comment.
+discussionId: Identifier of the discussion the comment is associated with.
+comment_text: Text content of the comment.
+creationDate: Date and time the comment was created.
+parentCommentId (optional): Identifier of the parent comment (if this is a reply).
+_class: Class reference for the Comments model.
+
+Relationships
+User - Discussion:
+
+One-to-Many: One user can create many discussions.
+User.email ↔ Discussion.email
+User - Likes:
+
+One-to-Many: One user can like many discussions or comments.
+User.email ↔ Likes.email
+User - Comments:
+
+One-to-Many: One user can comment on many discussions.
+User.email ↔ Comments.email
+Discussion - Likes:
+
+One-to-Many: One discussion can have many likes.
+Discussion._id ↔ Likes.discussionId
+Discussion - Comments:
+
+One-to-Many: One discussion can have many comments.
+Discussion._id ↔ Comments.discussionId
+Comments - Likes:
+
+One-to-Many: One comment can have many likes.
+Comments._id ↔ Likes.commentId
+Comments - Comments:
+
+Hierarchical: One comment can be a parent to many child comments (replies).
+Comments._id ↔ Comments.parentCommentId
+
+This schema provides a comprehensive structure for managing users, discussions, likes, and comments, while maintaining clear relationships between these entities.
