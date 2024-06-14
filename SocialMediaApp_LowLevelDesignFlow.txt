@@ -1,0 +1,293 @@
+List of Entities - 
+	User Entity
+	Discussion Entity
+	Like Entity
+        	Comment Entity
+
+Detailed Object Definitions -
+
+1. High-Level Microservices Interaction Diagram
+This diagram shows how the microservices interact with each other and with the clients:
+
+      |  User Service   |<---->|  Discussion Service |<---->|  Interaction Service |
+				        |
+                                     	                |   Client  |
+                                 	
+2. Class Diagram for User Service
++------------------+
+|   Users          |
++------------------+
+| - id: String     |
+| - name: String   |
+| - mobileNo: String|
+| - email: String  |
+| - password: String|
+| - followers: List<String>|
+| - following: List<String>|
+| - creationDate: Date|
++------------------+
+| +getters()       |
+| +setters()       |
++------------------+
+
++------------------+
+|   UserController |
++------------------+
+| + addUser(Users): ResponseEntity<Object> |
+| + deleteUser(String email): ResponseEntity<Object> |
+| + viewUser(): ResponseEntity<Object> |
+| + viewUserByName(String name): ResponseEntity<Object> |
+| + updateUser(Users): ResponseEntity<Object> |
+| + followUser(String following, String LoginEmail): ResponseEntity<Object> |
++------------------+
+
++------------------+
+|   UserService    |
++------------------+
+| + saveUser(Users): Users |
+| + deleteUser(String email): void |
+| + getAllUsers(): List<Users> |
+| + getUserByName(String name): Users |
+| + updateUser(Users): Users |
+| + followUser(String following, String LoginEmail): void |
++------------------+
+
+
+3. Class Diagram for Discussion Service
++--------------------+
+|   Discussions      |
++--------------------+
+| - id: String       |
+| - email: String    |
+| - text: String     |
+| - imageId: String  |
+| - hashTags: List<String>|
+| - viewCounts: int  |
+| - createdOn: Date  |
++--------------------+
+| +getters()         |
+| +setters()         |
++--------------------+
+
++----------------------+
+|  DiscussionController|
++----------------------+
+| + addDiscussion(String text, MultipartFile imageFile, List<String> hashTags, String email): ResponseEntity<Discussions> |
+| + getDiscussions(): ResponseEntity<List<Discussions>> |
+| + updateDiscussion(String id, String text, MultipartFile imageFile, List<String> hashTags, String email): ResponseEntity<Discussions> |
+| + deleteDiscussion(String id): ResponseEntity<Void> |
+| + getDiscussionsByTags(List<String> hashTags): ResponseEntity<List<Discussions>> |
+| + searchDiscussionsByText(String text): ResponseEntity<List<Discussions>> |
+| + getViewCounts(String id): ResponseEntity<Integer> |
++----------------------+
+
++----------------------+
+|  DiscussionService   |
++----------------------+
+| + addDiscussion(Discussions): Discussions |
+| + getAllDiscussions(): List<Discussions> |
+| + updateDiscussion(String id, Discussions): Discussions |
+| + deleteDiscussion(String id): void |
+| + getDiscussionsByTags(List<String> hashTags): List<Discussions> |
+| + searchDiscussionsByText(String text): List<Discussions> |
+| + getViewCounts(String id): int |
++----------------------+
+
+
+4. Class Diagram for Interaction Service
++------------------+
+|   Likes          |
++------------------+
+| - id: String     |
+| - discussionId: String |
+| - email: String  |
+| - commentId: String |
+| - creationDate: Date |
++------------------+
+| +getters()       |
+| +setters()       |
++------------------+
+
++------------------+
+|   Comments       |
++------------------+
+| - id: String     |
+| - email: String  |
+| - discussionId: String |
+| - commentText: String  |
+| - creationDate: Date   |
+| - parentCommentId: String |
++------------------+
+| +getters()       |
+| +setters()       |
++------------------+
+
++--------------------+
+| InteractionController|
++--------------------+
+| + addComment(Comments): Comments |
+| + updateComment(String id, Comments): ResponseEntity<Comments> |
+| + deleteComment(String id): ResponseEntity<Void> |
+| + getCommentsByDiscussionId(String discussionId): List<Comments> |
+| + replyToComment(String parentCommentId, Comments): Comments |
+| + addLike(Likes): ResponseEntity<Likes> |
+| + getLikesByEmailAndDiscussionId(String email, String discussionId): List<Likes> |
+| + countLikesByDiscussionId(String discussionId): ResponseEntity<Long> |
+| + countLikesByCommentId(String commentId): ResponseEntity<Long> |
++--------------------+
+
++--------------------+
+| InteractionService |
++--------------------+
+| + addComment(Comments): Comments |
+| + updateComment(String id, Comments): Comments |
+| + deleteComment(String id): void |
+| + getCommentsByDiscussionId(String discussionId): List<Comments> |
+| + replyToComment(String parentCommentId, Comments): Comments |
+| + addLike(Likes): Likes |
+| + getLikesByEmailAndDiscussionId(String email, String discussionId): List<Likes> |
+| + countLikesByDiscussionId(String discussionId): long |
+| + countLikesByCommentId(String commentId): long |
++--------------------+
+
+
+List of APIs - 
+
+User Service APIs -
+
+Add User
+URL: /user/addUser
+Method: POST
+Request Body: Users
+Response: ResponseEntity<Object>
+
+Delete User
+URL: /user/deleteUser
+Method: DELETE
+Request Param: String Email
+Response: ResponseEntity<Object>
+
+Get All Users
+URL: /user/viewUser
+Method: GET
+Response: ResponseEntity<Object>
+
+Get User by Name
+URL: /user/viewUserByName
+Method: GET
+Request Param: String name
+Response: ResponseEntity<Object>
+
+Update User
+URL: /user/updateUser
+Method: PUT
+Request Body: Users
+Response: ResponseEntity<Object>
+
+Follow User
+URL: /user/followUser
+Method: POST
+Request Param: String following, String LoginEmail
+Response: ResponseEntity<Object>
+
+Discussion Service APIs
+
+Add Discussion
+URL: /discussion/addDiscussion
+Method: POST
+Request Params: String text, MultipartFile imageFile, List<String> hashTags, String email
+Response: ResponseEntity<Discussions>
+
+Get All Discussions
+URL: /discussion/getDiscussions
+Method: GET
+Response: ResponseEntity<List<Discussions>>
+
+Update Discussion
+URL: /discussion/updateDiscussion
+Method: PUT
+Request Params: String id, String text, MultipartFile imageFile, List<String> hashTags, String email
+Response: ResponseEntity<Discussions>
+
+Delete Discussion
+URL: /discussion/deleteDiscussion
+Method: DELETE
+Request Param: String id
+Response: ResponseEntity<Void>
+
+Get Discussions by Tags
+URL: /discussion/tags
+Method: GET
+Request Param: List<String> hashTags
+Response: ResponseEntity<List<Discussions>>
+
+Search Discussions by Text
+URL: /discussion/search
+Method: GET
+Request Param: String text
+Response: ResponseEntity<List<Discussions>>
+
+Get View Counts
+URL: /discussion/viewCounts
+Method: GET
+Request Param: String id
+Response: ResponseEntity<Integer>
+
+
+Interaction Service APIs
+
+Add Comment
+URL: /interaction/addComment
+Method: POST
+Request Body: Comments
+Response: Comments
+
+Update Comment
+URL: /interaction/updateComment
+Method: PUT
+Request Param: String id
+Request Body: Comments
+Response: ResponseEntity<Comments>
+
+Delete Comment
+URL: /interaction/deleteComment
+Method: DELETE
+Request Param: String id
+Response: ResponseEntity<Void>
+
+Get Comments by Discussion ID
+URL: /interaction/getByDiscussionId
+Method: GET
+Request Param: String discussionId
+Response: List<Comments>
+
+Reply to Comment
+URL: /interaction/replyToComment
+Method: POST
+Request Param: String parentCommentId
+Request Body: Comments
+Response: Comments
+
+Add Like
+URL: /interaction/addLike
+Method: POST
+Request Body: Likes
+Response: ResponseEntity<Likes>
+
+Get Likes by Email and Discussion ID
+URL: /interaction/getLikesByEmailAndDiscussionId
+Method: GET
+Request Param: String email, String discussionId
+Response: List<Likes>
+
+Count Likes by Discussion ID
+URL: /interaction/countLikesByDiscussionId
+Method: GET
+Request Param: String discussionId
+Response: ResponseEntity<Long>
+
+Count Likes by Comment ID
+URL: /interaction/countLikesByCommentId
+Method: GET
+Request Param: String commentId
+Response: ResponseEntity<Long>
