@@ -1,0 +1,1811 @@
+{
+	"info": {
+		"_postman_id": "ae796ae0-8edc-4b6f-9149-4b61c351260b",
+		"name": "Social Media App",
+		"description": "Backend Assignment for SDE 1\n\nCreate a project which can handle below  \nOption to add users with following fields -\n\n- Name\n    \n- Mobile No (unique)\n    \n- Email (unique)  \n    Users can post a discussion which will have following fields\n    \n- Text field\n    \n- Image\n    \n- Hash Tags\n    \n- created on  \n    A discussion can have multiple hashtags  \n    Expose Api for following things:\n    \n- Create User\n    \n- Update User\n    \n- Delete user\n    \n- Show list of users\n    \n- Search user based on name\n    \n- Create Discussion\n    \n- Update Discussion\n    \n- Delete Discussion\n    \n- Get list of discussion based on tags\n    \n- Get list of discussions based on certain text, which is available in Text field  \n    Required Functionalities\n    \n\n1. User can login/signup\n    \n2. User can search of another users\n    \n3. User can follow another users\n    \n4. User can post (only text or Image + Text)\n    \n5. Other users can comment or like on the post\n    \n6. Users can like a comment or reply on the comment\n    \n7. Uses can delete or modify post after posting\n    \n8. Users delete or modify comments\n    \n9. Users can see view count of a post\n    \n10. Users can search for any posts using the hashtags",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36267703",
+		"_collection_link": "https://www.postman.com/docking-module-candidate-33453685/workspace/social-media-app/collection/36267703-ae796ae0-8edc-4b6f-9149-4b61c351260b?action=share&source=collection_link&creator=36267703"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"user\",\r\n    \"mobileNo\" : \"7652051942\",\r\n    \"email\"  : \"user2@gmail.com\",\r\n    \"password\" : \"123456789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/user/addUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"user",
+						"addUser"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"user\",\r\n    \"mobileNo\" : \"7652051942\",\r\n    \"email\"  : \"user2@gmail.com\",\r\n    \"password\" : \"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/user/addUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"user",
+								"addUser"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "23"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Jun 2024 16:25:11 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "User saved successfully"
+				}
+			]
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"user\",\r\n    \"mobileNo\" : \"8652051240\",\r\n    \"email\"  : \"user@gmail.com\",\r\n    \"password\" : \"1234567890\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/user/updateUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"user",
+						"updateUser"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update User",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"user\",\r\n    \"mobileNo\" : \"8652051240\",\r\n    \"email\"  : \"user@gmail.com\",\r\n    \"password\" : \"1234567890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/user/updateUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"user",
+								"updateUser"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "23"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Jun 2024 16:26:55 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "User saved successfully"
+				}
+			]
+		},
+		{
+			"name": "Show list of users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/user/viewUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"user",
+						"viewUser"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Show list of users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/user/viewUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"user",
+								"viewUser"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Jun 2024 16:27:06 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"666b374e1116bb308a615d89\",\n        \"name\": \"Naman\",\n        \"mobileNo\": \"7652051947\",\n        \"email\": \"naman@gmail.com\",\n        \"password\": \"123456\",\n        \"followers\": null,\n        \"following\": [\n            \"user2@gmail.com\"\n        ],\n        \"creationDate\": \"2024-06-13T18:15:42.884+00:00\"\n    },\n    {\n        \"id\": \"666b379b1116bb308a615d8a\",\n        \"name\": \"user2\",\n        \"mobileNo\": \"7652051948\",\n        \"email\": \"user2@gmail.com\",\n        \"password\": \"1234567\",\n        \"followers\": [\n            \"naman@gmail.com\"\n        ],\n        \"following\": null,\n        \"creationDate\": \"2024-06-13T18:16:59.359+00:00\"\n    },\n    {\n        \"id\": \"666b37ab1116bb308a615d8b\",\n        \"name\": \"user3\",\n        \"mobileNo\": \"7652051949\",\n        \"email\": \"user3@gmail.com\",\n        \"password\": \"12345678\",\n        \"followers\": null,\n        \"following\": null,\n        \"creationDate\": \"2024-06-13T18:17:15.509+00:00\"\n    },\n    {\n        \"id\": \"666c6ee751f98a60cd71ecc7\",\n        \"name\": \"user\",\n        \"mobileNo\": \"8652051240\",\n        \"email\": \"user@gmail.com\",\n        \"password\": \"1234567890\",\n        \"followers\": null,\n        \"following\": null,\n        \"creationDate\": \"2024-06-14T16:25:11.547+00:00\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Search user based on name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/user/viewUserByName?name=naman",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"user",
+						"viewUserByName"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "naman"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Search user based on name",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/user/viewUserByName?name=naman",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"user",
+								"viewUserByName"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "naman"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Jun 2024 16:27:20 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"666b374e1116bb308a615d89\",\n    \"name\": \"Naman\",\n    \"mobileNo\": \"7652051947\",\n    \"email\": \"naman@gmail.com\",\n    \"password\": \"123456\",\n    \"followers\": null,\n    \"following\": [\n        \"user2@gmail.com\"\n    ],\n    \"creationDate\": \"2024-06-13T18:15:42.884+00:00\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Follow another users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/user/followUser?following=user2@gmail.com&LoginEmail=naman@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"user",
+						"followUser"
+					],
+					"query": [
+						{
+							"key": "following",
+							"value": "user2@gmail.com"
+						},
+						{
+							"key": "LoginEmail",
+							"value": "naman@gmail.com"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Follow another users",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/user/followUser?following=user@gmail.com&LoginEmail=naman@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"user",
+								"followUser"
+							],
+							"query": [
+								{
+									"key": "following",
+									"value": "user@gmail.com"
+								},
+								{
+									"key": "LoginEmail",
+									"value": "naman@gmail.com"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "21"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Jun 2024 16:29:36 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "Followed Successfully"
+				}
+			]
+		},
+		{
+			"name": "Delete user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/user/deleteUser?Email=user4@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"user",
+						"deleteUser"
+					],
+					"query": [
+						{
+							"key": "Email",
+							"value": "user4@gmail.com"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete user",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/user/deleteUser?Email=user3@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"user",
+								"deleteUser"
+							],
+							"query": [
+								{
+									"key": "Email",
+									"value": "user3@gmail.com"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "25"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Jun 2024 16:29:57 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "User Deleted successfully"
+				}
+			]
+		},
+		{
+			"name": "Create Discussion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "text",
+							"value": "Working Out",
+							"type": "text"
+						},
+						{
+							"key": "imageFile",
+							"type": "file",
+							"src": "/C:/Users/91765/Pictures/Bodybuilding_Men_Mice_Belly_512663_3517x2345.jpg"
+						},
+						{
+							"key": "hashTags",
+							"value": "#ootd",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "user2@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8083/discussion/addDiscussion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"discussion",
+						"addDiscussion"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Discussion",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "text",
+									"value": "Working Out",
+									"type": "text"
+								},
+								{
+									"key": "imageFile",
+									"type": "file",
+									"src": "/C:/Users/91765/Pictures/Bodybuilding_Men_Mice_Belly_512663_3517x2345.jpg"
+								},
+								{
+									"key": "hashTags",
+									"value": "#ootd",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "user2@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8083/discussion/addDiscussion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"discussion",
+								"addDiscussion"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Jun 2024 16:30:22 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"666c701d4f456d6914e743ce\",\n    \"email\": \"user2@gmail.com\",\n    \"text\": \"Working Out\",\n    \"imageId\": \"666c701d4f456d6914e743bf\",\n    \"hashTags\": [\n        \"#ootd\"\n    ],\n    \"viewCounts\": 0,\n    \"createdOn\": \"2024-06-14T16:30:21.771+00:00\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Discussion",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "666b51ed214e0d41e39051c3",
+							"type": "text"
+						},
+						{
+							"key": "text",
+							"value": "working out updated",
+							"type": "text"
+						},
+						{
+							"key": "imageFile",
+							"type": "file",
+							"src": "/C:/Users/91765/Pictures/143961-new-gym-wallpaper-1920x1080-for-iphone-5.jpg"
+						},
+						{
+							"key": "hashTags",
+							"value": "#ootd, #now",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "user2@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8083/discussion/updateDiscussion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"discussion",
+						"updateDiscussion"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Discussion",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "666b51ed214e0d41e39051c3",
+									"type": "text"
+								},
+								{
+									"key": "text",
+									"value": "working out updated now",
+									"type": "text"
+								},
+								{
+									"key": "imageFile",
+									"type": "file",
+									"src": "/C:/Users/91765/Pictures/143961-new-gym-wallpaper-1920x1080-for-iphone-5.jpg"
+								},
+								{
+									"key": "hashTags",
+									"value": "#ootd, #now",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "user2@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8083/discussion/updateDiscussion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"discussion",
+								"updateDiscussion"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Jun 2024 16:30:43 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"666b51ed214e0d41e39051c3\",\n    \"email\": \"user2@gmail.com\",\n    \"text\": \"working out updated now\",\n    \"imageId\": \"666c70334f456d6914e743cf\",\n    \"hashTags\": [\n        \"#ootd\",\n        \"#now\"\n    ],\n    \"viewCounts\": 2,\n    \"createdOn\": \"2024-06-13T20:09:17.976+00:00\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get list of discussion based on tags",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/discussion/tags?hashTags=%23ootd, %23now, %23gym",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"discussion",
+						"tags"
+					],
+					"query": [
+						{
+							"key": "hashTags",
+							"value": "%23ootd, %23now, %23gym"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get list of discussion based on tags",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/discussion/tags?hashTags=%23ootd, %23now, %23gym",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"discussion",
+								"tags"
+							],
+							"query": [
+								{
+									"key": "hashTags",
+									"value": "%23ootd, %23now, %23gym"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Jun 2024 16:30:58 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"666b5130214e0d41e3905197\",\n        \"email\": \"naman@gmail.com\",\n        \"text\": \"hello world\",\n        \"imageId\": \"666b5130214e0d41e390518a\",\n        \"hashTags\": [\n            \"#gym\",\n            \"#workout\"\n        ],\n        \"viewCounts\": 2,\n        \"createdOn\": \"2024-06-13T20:06:08.433+00:00\"\n    },\n    {\n        \"id\": \"666b51ed214e0d41e39051c3\",\n        \"email\": \"user2@gmail.com\",\n        \"text\": \"working out updated now\",\n        \"imageId\": \"666c70334f456d6914e743cf\",\n        \"hashTags\": [\n            \"#ootd\",\n            \"#now\"\n        ],\n        \"viewCounts\": 3,\n        \"createdOn\": \"2024-06-13T20:09:17.976+00:00\"\n    },\n    {\n        \"id\": \"666c701d4f456d6914e743ce\",\n        \"email\": \"user2@gmail.com\",\n        \"text\": \"Working Out\",\n        \"imageId\": \"666c701d4f456d6914e743bf\",\n        \"hashTags\": [\n            \"#ootd\"\n        ],\n        \"viewCounts\": 1,\n        \"createdOn\": \"2024-06-14T16:30:21.771+00:00\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get list of discussions based on certain text, which is available in Text field",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/discussion/search?text=ork",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"discussion",
+						"search"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "ork"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get list of discussions based on certain text, which is available in Text field",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/discussion/search?text=ork",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"discussion",
+								"search"
+							],
+							"query": [
+								{
+									"key": "text",
+									"value": "ork"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Jun 2024 16:31:12 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"666b51ed214e0d41e39051c3\",\n        \"email\": \"user2@gmail.com\",\n        \"text\": \"working out updated now\",\n        \"imageId\": \"666c70334f456d6914e743cf\",\n        \"hashTags\": [\n            \"#ootd\",\n            \"#now\"\n        ],\n        \"viewCounts\": 4,\n        \"createdOn\": \"2024-06-13T20:09:17.976+00:00\"\n    },\n    {\n        \"id\": \"666c701d4f456d6914e743ce\",\n        \"email\": \"user2@gmail.com\",\n        \"text\": \"Working Out\",\n        \"imageId\": \"666c701d4f456d6914e743bf\",\n        \"hashTags\": [\n            \"#ootd\"\n        ],\n        \"viewCounts\": 2,\n        \"createdOn\": \"2024-06-14T16:30:21.771+00:00\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Delete Discussion",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/discussion/deleteDiscussion?id=666b51b4214e0d41e39051b3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"discussion",
+						"deleteDiscussion"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "666b51b4214e0d41e39051b3"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Discussion",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/discussion/deleteDiscussion?id=666c701d4f456d6914e743ce",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"discussion",
+								"deleteDiscussion"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "666c701d4f456d6914e743ce"
+								}
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 14 Jun 2024 16:31:49 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get View Counts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/discussion/viewCounts?id=666b51ed214e0d41e39051c3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"discussion",
+						"viewCounts"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "666b51ed214e0d41e39051c3"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get View Counts",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/discussion/viewCounts?id=666b51ed214e0d41e39051c3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"discussion",
+								"viewCounts"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "666b51ed214e0d41e39051c3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Jun 2024 16:32:12 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "4"
+				}
+			]
+		},
+		{
+			"name": "User can like a post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"discussionId\":\"666b51ed214e0d41e39051c3\",\r\n    \"email\":\"user3@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/interaction/addLike",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"interaction",
+						"addLike"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "User can like a post",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"discussionId\":\"666b51ed214e0d41e39051c3\",\r\n    \"email\":\"user3@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/interaction/addLike",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"interaction",
+								"addLike"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Jun 2024 16:32:32 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"discussionId\": \"666b51ed214e0d41e39051c3\",\n    \"email\": \"user3@gmail.com\",\n    \"commentId\": null,\n    \"creationDate\": \"2024-06-14T16:32:31.680+00:00\",\n    \"id\": \"666c709ffa57a609d604eeba\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Like Counts Based on Discussion Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/interaction/countLikesByDiscussionId?discussionId=666b5130214e0d41e3905197",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"interaction",
+						"countLikesByDiscussionId"
+					],
+					"query": [
+						{
+							"key": "discussionId",
+							"value": "666b5130214e0d41e3905197"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Like Counts Based on Discussion Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/interaction/countLikesByDiscussionId?discussionId=666b5130214e0d41e3905197",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"interaction",
+								"countLikesByDiscussionId"
+							],
+							"query": [
+								{
+									"key": "discussionId",
+									"value": "666b5130214e0d41e3905197"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Jun 2024 16:32:56 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "4"
+				}
+			]
+		},
+		{
+			"name": "Like Counts Based on Discussion Id and Email",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/interaction/getLikesByEmailAndDiscussionId?email=naman@gmail.com&discussionId=666b5130214e0d41e3905197",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"interaction",
+						"getLikesByEmailAndDiscussionId"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "naman@gmail.com"
+						},
+						{
+							"key": "discussionId",
+							"value": "666b5130214e0d41e3905197"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Like Counts Based on Discussion Id and Email",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/interaction/getLikesByEmailAndDiscussionId?email=naman@gmail.com&discussionId=666b5130214e0d41e3905197",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"interaction",
+								"getLikesByEmailAndDiscussionId"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "naman@gmail.com"
+								},
+								{
+									"key": "discussionId",
+									"value": "666b5130214e0d41e3905197"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Jun 2024 16:33:18 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"discussionId\": \"666b5130214e0d41e3905197\",\n        \"email\": \"naman@gmail.com\",\n        \"commentId\": null,\n        \"creationDate\": \"2024-06-14T11:41:50.087+00:00\",\n        \"id\": \"666c2c7ec3eaa4090e90e19e\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "User can comment on Discussion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"naman@gmail.com\",\r\n    \"discussionId\":\"666b51ed214e0d41e39051c3\",\r\n    \"comment_text\":\"Great Picss\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/interaction/addComment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"interaction",
+						"addComment"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "User can comment on Discussion",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"naman@gmail.com\",\r\n    \"discussionId\":\"666b51ed214e0d41e39051c3\",\r\n    \"comment_text\":\"Great Picss\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/interaction/addComment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"interaction",
+								"addComment"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Jun 2024 16:33:36 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"666c70e0fa57a609d604eebb\",\n    \"email\": \"naman@gmail.com\",\n    \"discussionId\": \"666b51ed214e0d41e39051c3\",\n    \"comment_text\": \"Great Picss\",\n    \"creationDate\": \"2024-06-14T16:33:36.505+00:00\",\n    \"parentCommentId\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "User can reply to a comment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"user4@gmail.com\",\r\n    \"discussionId\":\"666b5130214e0d41e3905197\",\r\n    \"comment_text\":\"Thanks\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/interaction/replyToComment?parentCommentId=666c58a7cfaf2b28cfaa6b06",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"interaction",
+						"replyToComment"
+					],
+					"query": [
+						{
+							"key": "parentCommentId",
+							"value": "666c58a7cfaf2b28cfaa6b06"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "User can reply to a comment",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"user4@gmail.com\",\r\n    \"discussionId\":\"666b5130214e0d41e3905197\",\r\n    \"comment_text\":\"Thanks\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/interaction/replyToComment?parentCommentId=666c58a7cfaf2b28cfaa6b06",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"interaction",
+								"replyToComment"
+							],
+							"query": [
+								{
+									"key": "parentCommentId",
+									"value": "666c58a7cfaf2b28cfaa6b06"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Jun 2024 16:33:56 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"666c70f4fa57a609d604eebc\",\n    \"email\": \"user4@gmail.com\",\n    \"discussionId\": \"666b5130214e0d41e3905197\",\n    \"comment_text\": \"Thanks\",\n    \"creationDate\": \"2024-06-14T16:33:56.814+00:00\",\n    \"parentCommentId\": \"666c58a7cfaf2b28cfaa6b06\"\n}"
+				}
+			]
+		},
+		{
+			"name": "User can update comment",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"naman@gmail.com\",\r\n    \"discussionId\":\"666b51ed214e0d41e39051c3\",\r\n    \"comment_text\":\"Great Pic\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/interaction/updateComment?id=666c58c0cfaf2b28cfaa6b07",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"interaction",
+						"updateComment"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "666c58c0cfaf2b28cfaa6b07"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "User can update comment",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"naman@gmail.com\",\r\n    \"discussionId\":\"666b5130214e0d41e3905197\",\r\n    \"comment_text\":\"Amazing\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/interaction/updateComment?id=666c58a7cfaf2b28cfaa6b06",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"interaction",
+								"updateComment"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "666c58a7cfaf2b28cfaa6b06"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Jun 2024 16:39:09 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"666c58a7cfaf2b28cfaa6b06\",\n    \"email\": \"naman@gmail.com\",\n    \"discussionId\": \"666b5130214e0d41e3905197\",\n    \"comment_text\": \"Amazing\",\n    \"creationDate\": \"2024-06-14T14:50:15.869+00:00\",\n    \"parentCommentId\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "User can delete a comment",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/interaction/deleteComment?id=666c58c0cfaf2b28cfaa6b07",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"interaction",
+						"deleteComment"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "666c58c0cfaf2b28cfaa6b07"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "User can delete a comment",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/interaction/deleteComment?id=6666c70f4fa57a609d604eebc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"interaction",
+								"deleteComment"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6666c70f4fa57a609d604eebc"
+								}
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 14 Jun 2024 16:36:03 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get Comments by discussionId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/interaction/getByDiscussionId?discussionId=666b5130214e0d41e3905197",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"interaction",
+						"getByDiscussionId"
+					],
+					"query": [
+						{
+							"key": "discussionId",
+							"value": "666b5130214e0d41e3905197"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Comments by discussionId",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/interaction/getByDiscussionId?discussionId=666b5130214e0d41e3905197",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"interaction",
+								"getByDiscussionId"
+							],
+							"query": [
+								{
+									"key": "discussionId",
+									"value": "666b5130214e0d41e3905197"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Jun 2024 16:36:20 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"666c58a7cfaf2b28cfaa6b06\",\n        \"email\": \"naman@gmail.com\",\n        \"discussionId\": \"666b5130214e0d41e3905197\",\n        \"comment_text\": \"Great Pic\",\n        \"creationDate\": \"2024-06-14T14:50:15.869+00:00\",\n        \"parentCommentId\": null\n    },\n    {\n        \"id\": \"666c5977667189431f873336\",\n        \"email\": \"user4@gmail.com\",\n        \"discussionId\": \"666b5130214e0d41e3905197\",\n        \"comment_text\": \"Thanks\",\n        \"creationDate\": \"2024-06-14T14:53:43.511+00:00\",\n        \"parentCommentId\": \"666c58a7cfaf2b28cfaa6b06\"\n    },\n    {\n        \"id\": \"666c70f4fa57a609d604eebc\",\n        \"email\": \"user4@gmail.com\",\n        \"discussionId\": \"666b5130214e0d41e3905197\",\n        \"comment_text\": \"Thanks\",\n        \"creationDate\": \"2024-06-14T16:33:56.814+00:00\",\n        \"parentCommentId\": \"666c58a7cfaf2b28cfaa6b06\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "User can like a comment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"discussionId\":\"666b5130214e0d41e3905197\",\r\n    \"email\":\"user3@gmail.com\",\r\n    \"commentId\":\"666c58a7cfaf2b28cfaa6b06\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/interaction/addLike",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"interaction",
+						"addLike"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "User can like a comment",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"discussionId\":\"666b51ed214e0d41e39051c3\",\r\n    \"email\":\"user3@gmail.com\",\r\n    \"commentId\":\"6666c70e0fa57a609d604eebb\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/interaction/addLike",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"interaction",
+								"addLike"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Jun 2024 16:37:28 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"discussionId\": \"666b51ed214e0d41e39051c3\",\n    \"email\": \"user3@gmail.com\",\n    \"commentId\": \"6666c70e0fa57a609d604eebb\",\n    \"creationDate\": \"2024-06-14T16:37:28.606+00:00\",\n    \"id\": \"666c71c8fa57a609d604eebd\"\n}"
+				}
+			]
+		}
+	]
+}
