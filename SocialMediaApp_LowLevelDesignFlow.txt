@@ -11,7 +11,7 @@ This diagram shows how the microservices interact with each other and with the c
 
       |  User Service   |<---->|  Discussion Service |<---->|  Interaction Service |
 				        |
-                                     	                |   Client  |
+                                  |   Client  |
                                  	
 2. Class Diagram for User Service
 +------------------+
